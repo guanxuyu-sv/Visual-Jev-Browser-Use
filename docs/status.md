@@ -187,11 +187,11 @@ kept in `data/wa-verified`, but they address the same unreachable sites.
 | speculative decoding (H6) | — | optional in the plan |
 | calibration (NLL, Brier, reliability) | — | needed only if a probability claim is made |
 
-## Reading of it
+## Findings the plan did not anticipate
 
 The visual claim is the one the evidence supports, on two benchmarks with
 different characteristics, with a causal test behind it and a mechanism located.
-Three findings come with it that the plan did not anticipate:
+Three findings come with it:
 
 1. **Visual value scales with page complexity.** +34.2% on real web pages against
    +5.6 to +7.1% on a simplified benchmark, same models, same training. Evaluating
@@ -205,12 +205,9 @@ Three findings come with it that the plan did not anticipate:
    agents that never stop, and it is a property of the corpus format rather than
    of Mind2Web.
 
-The unified decision-and-generation mechanism, which the plan proposed as the
-methodological contribution, has no support in accuracy. Its measurable benefit
-is in field text (+9.1%, interval excludes zero) and in isolated latency that has
-not been shown to survive the closed loop. Reported as a negative result, it is
-honest and useful; carried as the paper's main claim, it is not defensible on
-these numbers.
+The unified decision-and-generation mechanism has no support in accuracy. Its
+measurable benefit is in field text (+9.1%, interval excludes zero) and in
+isolated latency that has not been shown to survive the closed loop.
 
 ## Defects found in this pipeline, and the checks that now exist
 
