@@ -108,6 +108,15 @@ the wrong one** — while the element table it was also given said `checked=true
 for the element it chose. The same checkpoint on the same page, given a plain
 screenshot, answers correctly.
 
+<p align="center">
+  <img src="assets/figures/overlay_distribution_shift.png" width="100%"
+       alt="The same checkpoint on the same shipping-options page: from a plain screenshot it picks element 3 with p=0.93, and from the numbered overlay it picks element 1 with p=0.99">
+</p>
+
+<p align="center"><sub>The badges occlude nothing — moving them clear of the text
+did not change the answer. What breaks it is that the overlay itself is not in
+the training distribution.</sub></p>
+
 **Offline trajectory corpora contain no terminal action.** All 6454 Mind2Web
 steps are CLICK, TYPE_TEXT or SELECT, because a recorded trajectory stores one
 action per step and stops. The model saw DONE among its candidates and was never
