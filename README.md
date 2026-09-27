@@ -35,6 +35,11 @@ and has no room to. The entire gain is target selection — CLICK joint accuracy
 goes from 43% to 88–90%. **Deciding what to do needs only the DOM text. Deciding
 which element to do it to needs the picture.**
 
+<p align="center">
+  <img src="assets/figures/where_the_gain_is.svg" width="100%"
+       alt="Grouped bars: operation accuracy is 94 to 97 percent for all four arms, while target accuracy is about 58 percent without a screenshot and about 93 percent with one">
+</p>
+
 | comparison | difference | 95% CI | wins/losses |
 | --- | --- | --- | --- |
 | add screenshot, autoregressive output | **+34.2%** | [+23.1, +47.7] | 85 / 5 |
@@ -82,6 +87,16 @@ accuracy does not fall (C ≥ A, D ≥ B). **End to end it does not show**: brow
 observation is 1.2 s of a 1.5 s step, so a 200 ms saving is 14% of the step. We
 report the model-side result and decline the end-to-end one.
 
+<p align="center">
+  <img src="assets/figures/latency_decomposition.svg" width="100%"
+       alt="Stacked bars of median per-step time: browser observation is about 1.2 seconds in every arm, against 145 to 447 milliseconds of model decision">
+</p>
+
+<p align="center">
+  <img src="assets/figures/success_under_budget.svg" width="100%"
+       alt="Tasks finished within a wall-clock budget: the screenshot arms lead at every budget, and the branch-readout arms lead the autoregressive ones most at the tightest budgets">
+</p>
+
 ### The negative result
 
 The unified decision-and-generation mechanism — the thing this project set out to
@@ -96,6 +111,15 @@ far as the data says:
 * Fan-out needs questions to share an observation, and a browser step has 2–3
   (52% have ≤2). The prior work's 8.9× came from N=32. Measured here: N=1 gives
   1.00×, N=2 gives 1.94×, N=4 gives 2.41×.
+
+<p align="center">
+  <img src="assets/figures/mechanism_floors.svg" width="100%"
+       alt="Two bar panels: fan-out gives 1.00 times at one branch rising to 2.41 at four, and KV reuse gives 3 times at one generated token falling to about 2 at eight and thirty-two">
+</p>
+
+<p align="center"><sub>Both speedups are real and both have a floor. A browser step
+sits near the bottom of each: two or three branches, and a field value a few tokens
+long.</sub></p>
 
 Its measurable benefit is field text: **+9.1%**, 95% CI [+2.1, +15.7].
 

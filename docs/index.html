@@ -166,6 +166,11 @@ footer a{color:var(--ink-2)}
     </tbody>
   </table>
   </div>
+  <figure class="wide">
+    <img src="where_the_gain_is.svg" alt="Grouped bars: operation accuracy is 94 to 97 percent for all four arms, while target accuracy is about 58 percent without a screenshot and about 93 percent with one">
+    <figcaption>Left group: every arm lands within three points of the others. Right group: the
+    same four arms split cleanly by whether they can see the page.</figcaption>
+  </figure>
   <div class="callout">
     <strong>Operation accuracy is 94.0%–96.6% in every arm.</strong> The screenshot
     cannot move it and has no room to. The entire gain is target selection, 43.4% to
@@ -274,7 +279,22 @@ footer a{color:var(--ink-2)}
       The prior work's 8.9× came from N=32. Measured here: N=1 <span class="mono">0.99×</span>,
       N=2 <span class="mono">1.97×</span>, N=4 <span class="mono">2.42×</span>.</li>
   </ul>
+  <figure class="wide">
+    <img src="mechanism_floors.svg" alt="Two bar panels: fan-out gives 1.00 times at one branch rising to 2.41 at four, and KV reuse gives 3 times at one generated token falling to about 2 at eight and thirty-two">
+    <figcaption>Both speedups are real and both have a floor. A browser step sits near the
+    bottom of each: two or three branches, and a field value a few tokens long.</figcaption>
+  </figure>
   <p class="sub">What it does buy is decision latency, and that part holds.</p>
+  <figure class="wide">
+    <img src="latency_decomposition.svg" alt="Stacked bars of median per-step time: browser observation is about 1.2 seconds in every arm, against 145 to 447 milliseconds of model decision">
+    <figcaption>The model is the small part of a step. Saving 200 ms of it is worth having and
+    is not worth calling an end-to-end speedup.</figcaption>
+  </figure>
+  <figure class="wide">
+    <img src="success_under_budget.svg" alt="Tasks finished within a wall-clock budget: the screenshot arms lead at every budget, and the branch-readout arms lead the autoregressive ones most at the tightest budgets">
+    <figcaption>Where the latency does show: under a tight budget. A task never finished is
+    never counted, however long it ran.</figcaption>
+  </figure>
   <div class="tscroll">
   <table>
     <thead><tr><th>arm</th><th>decide</th><th>browser observation</th><th>success under 3 s</th></tr></thead>
