@@ -11,7 +11,7 @@ This extends [Visual Jev](https://github.com/guanxuyu-sv/Visual-Jev)
 one image to acting on a web page, where the questions are *which operation* and
 *which element*, and the answers have to survive an executor.
 
-**[🤗 Adapters](https://huggingface.co/guanxuyu/visual-jev-browser-4b)** · **[🧪 Reproduction guide](REPRODUCE.md)** · **[📊 Status against the plan](docs/status.md)**
+**[🌐 Project page](https://guanxuyu-sv.github.io/Visual-Jev-Browser-Use/)** · **[🤗 Adapters](https://huggingface.co/guanxuyu/visual-jev-browser-4b)** · **[🧪 Reproduction guide](REPRODUCE.md)** · **[📊 Status against the plan](docs/status.md)**
 
 Every number below is measured, with its interval attached. `docs/status.md` is
 the standing account of what each hypothesis came to, including the one that did
