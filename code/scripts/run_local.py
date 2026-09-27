@@ -23,7 +23,27 @@ from pathlib import Path
 import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "third_party" / "jev-ultrafast"))
+
+
+def _third_party(name):
+    """Where the external dependencies live.
+
+    `VJB_THIRD_PARTY` overrides the default so they need not sit inside a
+    checkout of this repository. `code/scripts/fetch_third_party.sh` puts them
+    at the default and pins both commits.
+    """
+    root = os.environ.get("VJB_THIRD_PARTY")
+    base = Path(root) if root else Path(__file__).resolve().parents[1] / "third_party"
+    target = base / name
+    if not target.exists():
+        raise SystemExit(
+            f"{name} not found at {target}.\n"
+            "Run:  bash code/scripts/fetch_third_party.sh\n"
+            "or point VJB_THIRD_PARTY at an existing checkout."
+        )
+    return target
+
+sys.path.insert(0, str(_third_party("jev-ultrafast")))
 
 from vjb.data.local_site import generate  # noqa: E402
 

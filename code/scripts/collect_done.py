@@ -32,7 +32,27 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "third_party" / "jev-ultrafast"))
+
+
+def _third_party(name):
+    """Where the external dependencies live.
+
+    `VJB_THIRD_PARTY` overrides the default so they need not sit inside a
+    checkout of this repository. `code/scripts/fetch_third_party.sh` puts them
+    at the default and pins both commits.
+    """
+    root = os.environ.get("VJB_THIRD_PARTY")
+    base = Path(root) if root else Path(__file__).resolve().parents[1] / "third_party"
+    target = base / name
+    if not target.exists():
+        raise SystemExit(
+            f"{name} not found at {target}.\n"
+            "Run:  bash code/scripts/fetch_third_party.sh\n"
+            "or point VJB_THIRD_PARTY at an existing checkout."
+        )
+    return target
+
+sys.path.insert(0, str(_third_party("jev-ultrafast")))
 
 from vjb.browser.observe import action_space  # noqa: E402
 from vjb.data import miniwob  # noqa: E402
@@ -154,7 +174,7 @@ def main():
     parser.add_argument("--arm", default="D")
     args = parser.parse_args()
 
-    html = Path(__file__).resolve().parents[1] / "third_party" / "miniwob-html"
+    html = _third_party("miniwob-html")
     os.environ.setdefault("BU_CDP_URL", "http://127.0.0.1:9333")
 
     from vjb.browser.loop import configure_cdp

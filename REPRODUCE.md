@@ -12,9 +12,27 @@ build step rather than copied into this repository.
 
 The trained adapters are not in git either, but they are published:
 [`guanxuyu/visual-jev-browser-4b`](https://huggingface.co/guanxuyu/visual-jev-browser-4b)
-holds all four arms and the terminal-trained stage, so steps 1–3 can be skipped
-if you only want to reproduce the evaluation. The backbone comes from
-`Qwen/Qwen3-VL-4B-Instruct`.
+holds all four arms and the terminal-trained stage, so the corpus build and the
+training runs can be skipped if you only want to reproduce the evaluation. The
+backbone comes from `Qwen/Qwen3-VL-4B-Instruct`.
+
+The executor and the benchmark are fetched at pinned commits by step 1 rather
+than vendored, because both carry their own licences.
+
+## 1. Fetch the executor and the benchmark
+
+```bash
+bash code/scripts/fetch_third_party.sh
+```
+
+This clones [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast)
+and [MiniWoB++](https://github.com/Farama-Foundation/miniwob-plusplus) at the
+commits in `PINNED_VERSIONS.md` and lays the task pages out where the runners
+expect them. To keep them elsewhere, pass a destination and export
+`VJB_THIRD_PARTY` to the same path.
+
+Nothing in `code/` reaches for them until a closed-loop script runs; the offline
+diagnostic and the table regeneration do not need them.
 
 ## Environment
 
@@ -62,7 +80,7 @@ attempts in isolation, while `fromSurface=False` returned the same image in 28 m
 `configure_cdp` in `code/vjb/browser/loop.py` applies that and retries; under load
 40–64% of captures still need a retry.
 
-## 1. Acceptance checks
+## 2. Acceptance checks
 
 Run these before anything expensive. They check the properties the method
 depends on, and each one exists because its absence cost hours.
@@ -82,7 +100,7 @@ that running the branches leaves the shared prefix usable for generation.
 (full-sequence logits, labels shifted, everything but the answer masked). It must
 report a difference of 0 before any training run.
 
-## 2. Build the corpus
+## 3. Build the corpus
 
 ```bash
 python code/scripts/build_mind2web.py --data $VJB_ROOT/data/mm-mind2web/data \
@@ -101,7 +119,7 @@ which the small text the screenshot exists to convey is gone. 3327 of 6454 steps
 survive the reduction; the rest have a gold element taller than a viewport or
 fewer than four candidates in view.
 
-## 3. Train the four arms
+## 4. Train the four arms
 
 ```bash
 VJB_ROOT=$VJB_ROOT bash code/scripts/train_all.sh
@@ -112,7 +130,7 @@ budget. Only `--no-image` and `--output-format` differ. 2000 steps, accumulate 4
 lr 1e-4, LoRA r=16 alpha=32 on the language tower with the vision tower frozen:
 33.0M trainable of 4.47B (0.74%), 9.5 GiB peak, roughly 1–2 hours per arm.
 
-## 4. Evaluate
+## 5. Evaluate
 
 Adapters can come straight from the Hub instead of a local training run —
 `--adapter guanxuyu/visual-jev-browser-4b` for arm D, and the subfolder paths in
@@ -143,9 +161,10 @@ before any model was evaluated and each exclusion's reason is recorded in
 `code/vjb/data/miniwob_subset.json`: 25 expose no actionable DOM at all, 22
 expose a single element, which is not a choice.
 
-## 5. Regenerate the tables
+## 6. Regenerate the tables
 
-No GPU needed.
+No GPU, no browser, no model — this works on a fresh clone with nothing else
+installed.
 
 ```bash
 python code/vjb/eval/report.py data/miniwob_done_CD.json
