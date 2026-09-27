@@ -11,126 +11,195 @@
 <meta property="og:url" content="https://guanxuyu-sv.github.io/Visual-Jev-Browser-Use/">
 <meta property="og:image" content="https://guanxuyu-sv.github.io/Visual-Jev-Browser-Use/overlay_distribution_shift.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;450;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --bg:#ffffff; --fg:#16161a; --muted:#5f5f6e; --line:#e3e3ea; --soft:#f7f7fa;
-  --accent:#1f5fd0; --good:#187a3c; --bad:#c62828; --code:#f2f2f6;
+  color-scheme: light;
+  --ground:#F6F7F6; --panel:#FFFFFF; --ink:#11161A; --ink-2:#4C5760;
+  --muted:#7D878E; --rule:#DCE0DE; --rule-soft:#E9ECEA;
+  --dom:#2A6FD6; --vision:#D8541F; --null:#8D959B; --null-soft:#EDEFEE;
+  --good:#1B7F45; --bad:#C0392B;
+  --display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
 }
-:root:not([data-theme="light"]){ @media (prefers-color-scheme: dark){
-  --bg:#111114; --fg:#ececf0; --muted:#9a9aa8; --line:#2a2a33; --soft:#1a1a20;
-  --accent:#6ea0ff; --good:#4ec27a; --bad:#ff7b72; --code:#1e1e26;
-}}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#0E1214; --panel:#151A1D; --ink:#E9EDEB; --ink-2:#AEB8BD;
+    --muted:#89949A; --rule:#262D31; --rule-soft:#1D2326;
+    --dom:#5E9BEA; --vision:#F0783E; --null:#7C868C; --null-soft:#1A2023;
+    --good:#4EC27A; --bad:#FF7B72;
+  }
+}
 :root[data-theme="dark"]{
-  --bg:#111114; --fg:#ececf0; --muted:#9a9aa8; --line:#2a2a33; --soft:#1a1a20;
-  --accent:#6ea0ff; --good:#4ec27a; --bad:#ff7b72; --code:#1e1e26;
+  color-scheme: dark;
+  --ground:#0E1214; --panel:#151A1D; --ink:#E9EDEB; --ink-2:#AEB8BD;
+  --muted:#89949A; --rule:#262D31; --rule-soft:#1D2326;
+  --dom:#5E9BEA; --vision:#F0783E; --null:#7C868C; --null-soft:#1A2023;
+  --good:#4EC27A; --bad:#FF7B72;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);margin:0;
-  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
-  -webkit-font-smoothing:antialiased}
-.wrap{max-width:860px;margin:0 auto;padding:0 20px}
-header{padding-block:56px 34px;border-bottom:1px solid var(--line)}
-h1{font-size:clamp(28px,5vw,40px);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
-.lede{font-size:clamp(17px,2.4vw,19px);color:var(--muted);margin:0 0 22px;max-width:62ch}
-.links{display:flex;flex-wrap:wrap;gap:10px}
-.links a{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;color:var(--fg);font-size:14px;background:var(--soft)}
-.links a:hover{border-color:var(--accent);color:var(--accent)}
-section{padding-block:38px;border-bottom:1px solid var(--line)}
-h2{font-size:clamp(20px,3vw,25px);margin:0 0 6px;letter-spacing:-.01em}
-h2 .n{color:var(--muted);font-weight:400;margin-right:10px}
-.sub{color:var(--muted);margin:0 0 20px;max-width:64ch}
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 14px}
-table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:440px}
-th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--vision);outline-offset:3px}
+h1,h2,h3{text-wrap:balance;margin:0}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+header{border-bottom:1px solid var(--rule);position:sticky;top:0;background:var(--ground);z-index:5}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:13px;flex-wrap:wrap}
+.mark{font-family:var(--display);font-size:21px;letter-spacing:.01em}
+.mark em{font-style:italic;color:var(--vision)}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+nav a{text-decoration:none;padding-block:2px;border-bottom:1px solid transparent}
+nav a:hover,nav a:focus-visible{border-bottom-color:var(--ink)}
+.nav-action{color:var(--vision);font-weight:600}
+
+.hero{padding-block:30px 26px;border-bottom:1px solid var(--rule)}
+.hero-top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px;align-items:center}
+.hero h1{font-family:var(--display);font-size:clamp(34px,4.4vw,50px);line-height:1.04;
+  font-weight:400;letter-spacing:-.01em;max-width:16ch}
+.hero h1 em{font-style:italic;color:var(--vision)}
+.lede{margin-top:14px;max-width:50ch;color:var(--ink-2);font-size:15px;line-height:1.52}
+.hero-links{display:flex;gap:9px 16px;flex-wrap:wrap;margin-top:18px;font-size:13px}
+.hero-links a{color:var(--ink);text-decoration-thickness:1px;text-underline-offset:3px}
+.hero .eyebrow{margin:0 0 10px;color:var(--vision)}
+.hero-fig{margin:0;border:1px solid var(--rule);background:var(--panel)}
+.hero-fig img{display:block;width:100%;height:auto}
+.hero-fig figcaption{padding:8px 11px;border-top:1px solid var(--rule);font-size:10.5px;line-height:1.4;color:var(--muted)}
+
+section{padding-block:34px;border-bottom:1px solid var(--rule)}
+.shead{display:flex;flex-direction:column;gap:7px;margin-bottom:6px}
+.shead h2{font-family:var(--display);font-weight:400;font-size:clamp(23px,3vw,31px);line-height:1.12}
+.sub{color:var(--ink-2);max-width:64ch;margin:10px 0 0;font-size:14.5px}
+
+.tscroll{overflow-x:auto;margin-top:20px;border:1px solid var(--rule);background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px}
+th,td{padding:9px 13px;text-align:right;border-bottom:1px solid var(--rule-soft);white-space:nowrap}
 th:first-child,td:first-child{text-align:left;white-space:normal}
-thead th{font-weight:600;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-tbody tr.best{background:var(--soft)}
-tbody tr.best td{font-weight:600}
+thead th{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;border-bottom:1px solid var(--rule)}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.dim td{color:var(--null)}
+td .best{color:var(--vision);font-weight:500}
 .good{color:var(--good)} .bad{color:var(--bad)}
-figure{margin:20px 0 10px}
-figure img{width:100%;border:1px solid var(--line);border-radius:8px;display:block}
-figcaption{color:var(--muted);font-size:13.5px;margin-top:10px;max-width:64ch}
-.note{background:var(--soft);border-left:3px solid var(--accent);padding:14px 16px;
-  border-radius:0 8px 8px 0;margin:18px 0;font-size:15px}
-.note.warn{border-left-color:var(--bad)}
-code{background:var(--code);padding:2px 6px;border-radius:4px;font-size:13.5px;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-pre{background:var(--code);padding:14px 16px;border-radius:8px;overflow-x:auto;font-size:13.5px}
-pre code{background:none;padding:0}
-ul{padding-left:22px} li{margin:7px 0}
-footer{padding-block:32px 60px;color:var(--muted);font-size:14px}
-footer a{color:var(--accent)}
-a{color:var(--accent)}
+
+.callout{margin-top:20px;border:1px solid var(--rule);border-left:3px solid var(--vision);
+  background:var(--panel);padding:15px 17px;font-size:14.5px;max-width:74ch}
+.callout.null{border-left-color:var(--null);background:var(--null-soft)}
+figure.wide{margin:22px 0 0;border:1px solid var(--rule);background:var(--panel)}
+figure.wide img{display:block;width:100%;height:auto}
+figure.wide figcaption{padding:10px 13px;border-top:1px solid var(--rule);
+  font-size:12.5px;line-height:1.5;color:var(--muted)}
+ul{padding-left:20px;margin:14px 0 0;max-width:68ch} li{margin:7px 0;font-size:14.5px}
+pre{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;overflow-x:auto;
+  font-size:13px;font-family:var(--mono);margin-top:18px}
+code{font-family:var(--mono);font-size:.94em}
+footer{padding-block:28px 56px;color:var(--muted);font-size:13px}
+footer p{max-width:74ch}
+footer a{color:var(--ink-2)}
+@media (max-width:760px){ .hero-top{grid-template-columns:1fr;gap:22px} }
 </style>
 </head>
 <body>
-<div class="wrap">
 
 <header>
-  <h1>Where vision helps a browser agent,<br>and where it breaks</h1>
-  <p class="lede">One Qwen3-VL reads a screenshot and a DOM element table once, answers
-  each decision from that shared prefill, and continues the same KV cache to write a field
-  value when the chosen operation needs one. Four arms, two benchmarks, and a mechanism
-  that did not pay off.</p>
-  <div class="links">
-    <a href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use">Code &amp; results</a>
-    <a href="https://huggingface.co/guanxuyu/visual-jev-browser-4b">Adapters</a>
-    <a href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use/blob/main/REPRODUCE.md">Reproduce</a>
-    <a href="https://github.com/guanxuyu-sv/Visual-Jev">Visual Jev</a>
-    <a href="https://arxiv.org/abs/2609.25845">Prior paper</a>
+  <div class="wrap hrow">
+    <div class="mark">Visual Jev <em>Browser Use</em></div>
+    <nav>
+      <a href="#evidence">Evidence</a>
+      <a href="#scale">Scale</a>
+      <a href="#breaks">Where it breaks</a>
+      <a href="#null">What didn't work</a>
+      <a class="nav-action" href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use">GitHub</a>
+    </nav>
   </div>
 </header>
 
-<section>
-  <h2><span class="n">01</span>Vision decides which element, not what action</h2>
+<div class="wrap">
+
+<div class="hero" id="top">
+  <div class="hero-top">
+    <div>
+      <p class="eyebrow">Qwen3-VL-4B · Mind2Web · MiniWoB++</p>
+      <h1>The screenshot decides <em>which element</em>, not what action.</h1>
+      <p class="lede">One model reads a screenshot and a DOM element table once, answers each
+      decision from that shared prefill, and continues the same KV cache to write a field value.
+      Four arms, two benchmarks, and a mechanism that did not pay off.</p>
+      <div class="hero-links">
+        <a href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use">Code &amp; results</a>
+        <a href="https://huggingface.co/guanxuyu/visual-jev-browser-4b">Adapters</a>
+        <a href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use/blob/main/REPRODUCE.md">Reproduce</a>
+        <a href="https://github.com/guanxuyu-sv/Visual-Jev">Visual Jev</a>
+      </div>
+    </div>
+    <figure class="hero-fig">
+      <img src="overlay_distribution_shift.png"
+           alt="The same checkpoint on the same shipping-options page: from a plain screenshot it picks element 3 with p=0.93, and from a numbered overlay it picks element 1 with p=0.99">
+      <figcaption>Same checkpoint, same page, same goal. A numbered overlay the model was not
+      trained on moves it from the right element to the wrong one — more confidently.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="evidence">
+  <div class="shead"><span class="eyebrow">01 / Evidence</span>
+    <h2>The gain is target selection, and nothing else</h2></div>
   <p class="sub">Held-out Mind2Web websites, n=234, never seen in training. The four arms
   share a corpus, a candidate list and a training budget; only the modality and the output
-  mechanism differ.</p>
-  <div class="tw">
+  mechanism differ, which is what makes a difference between them attributable.</p>
+  <div class="tscroll">
   <table>
     <thead><tr><th>arm</th><th>observation</th><th>output</th><th>joint</th><th>target</th><th>CLICK</th><th>operation</th></tr></thead>
     <tbody>
-      <tr><td>A</td><td>DOM</td><td>autoregressive</td><td>54.7%</td><td>58.5%</td><td>43.4%</td><td>94.0%</td></tr>
-      <tr><td>B</td><td>screenshot + DOM</td><td>autoregressive</td><td>88.9%</td><td>92.3%</td><td>88.4%</td><td>95.7%</td></tr>
-      <tr><td>C</td><td>DOM</td><td>branch readout</td><td>56.8%</td><td>59.4%</td><td>43.9%</td><td>95.7%</td></tr>
-      <tr class="best"><td>D</td><td>screenshot + DOM</td><td>branch readout</td><td>91.0%</td><td>94.4%</td><td>90.2%</td><td>96.6%</td></tr>
+      <tr><td>A</td><td>DOM</td><td>autoregressive</td><td class="num">54.7%</td><td class="num">58.5%</td><td class="num">43.4%</td><td class="num">94.0%</td></tr>
+      <tr><td>B</td><td>screenshot + DOM</td><td>autoregressive</td><td class="num">88.9%</td><td class="num">92.3%</td><td class="num">88.4%</td><td class="num">95.7%</td></tr>
+      <tr><td>C</td><td>DOM</td><td>branch readout</td><td class="num">56.8%</td><td class="num">59.4%</td><td class="num">43.9%</td><td class="num">95.7%</td></tr>
+      <tr><td>D</td><td>screenshot + DOM</td><td>branch readout</td><td class="num"><span class="best">91.0%</span></td><td class="num"><span class="best">94.4%</span></td><td class="num"><span class="best">90.2%</span></td><td class="num">96.6%</td></tr>
     </tbody>
   </table>
   </div>
-  <div class="note">
+  <div class="callout">
     <strong>Operation accuracy is 94.0%–96.6% in every arm.</strong> The screenshot
     cannot move it and has no room to. The entire gain is target selection, 43.4% to
     90.2% on CLICK. Deciding <em>what</em> to do needs only the DOM text; deciding
     <em>which element</em> to do it to needs the picture.
   </div>
-  <div class="tw">
+  <div class="tscroll">
   <table>
-    <thead><tr><th>comparison</th><th>difference</th><th>95% CI</th><th>wins/losses</th></tr></thead>
+    <thead><tr><th>comparison</th><th>difference</th><th>95% CI</th><th>wins / losses</th></tr></thead>
     <tbody>
-      <tr><td>add screenshot, autoregressive</td><td class="good">+34.2%</td><td>[+23.1%, +47.7%]</td><td>85/5</td></tr>
-      <tr><td>add screenshot, branch readout</td><td class="good">+34.2%</td><td>[+21.8%, +47.6%]</td><td>81/1</td></tr>
-      <tr><td>change output, DOM only</td><td>+2.1%</td><td>[-1.2%, +7.2%]</td><td>19/14</td></tr>
-      <tr><td>change output, with screenshot</td><td>+2.1%</td><td>[-0.8%, +4.8%]</td><td>7/2</td></tr>
+      <tr><td>add screenshot, autoregressive</td><td class="num good">+34.2%</td><td class="num">[+23.1%, +47.7%]</td><td class="num">85/5</td></tr>
+      <tr><td>add screenshot, branch readout</td><td class="num good">+34.2%</td><td class="num">[+21.8%, +47.6%]</td><td class="num">81/1</td></tr>
+      <tr class="dim"><td>change output, DOM only</td><td class="num">+2.1%</td><td class="num">[-1.2%, +7.2%]</td><td class="num">19/14</td></tr>
+      <tr class="dim"><td>change output, with screenshot</td><td class="num">+2.1%</td><td class="num">[-0.8%, +4.8%]</td><td class="num">7/2</td></tr>
     </tbody>
   </table>
   </div>
   <p class="sub">Cluster bootstrap over held-out websites. Only the two screenshot rows exclude zero.</p>
 </section>
 
-<section>
-  <h2><span class="n">02</span>The effect is causal, not correlational</h2>
-  <p class="sub">Paired pages: byte-identical DOM once the SVGs are stripped, differing only in
+<section id="causal">
+  <div class="shead"><span class="eyebrow">02 / Causal</span>
+    <h2>Paired pages, identical DOM, different picture</h2></div>
+  <p class="sub">Two pages that are byte-identical once the SVGs are stripped, differing only in
   which card carries which picture, so the correct target moves for a reason nothing but the
   image can express.</p>
-  <div class="tw">
+  <div class="tscroll">
   <table>
     <thead><tr><th>arm</th><th>observation</th><th>pairs fully correct</th></tr></thead>
     <tbody>
-      <tr><td>A</td><td>DOM</td><td class="bad">0/5</td></tr>
-      <tr><td>B</td><td>screenshot + DOM</td><td class="good">5/5</td></tr>
-      <tr><td>C</td><td>DOM</td><td class="bad">0/5</td></tr>
-      <tr><td>D</td><td>screenshot + DOM</td><td class="good">5/5</td></tr>
+      <tr class="dim"><td>A</td><td>DOM</td><td class="num bad">0/5</td></tr>
+      <tr><td>B</td><td>screenshot + DOM</td><td class="num good">5/5</td></tr>
+      <tr class="dim"><td>C</td><td>DOM</td><td class="num bad">0/5</td></tr>
+      <tr><td>D</td><td>screenshot + DOM</td><td class="num good">5/5</td></tr>
     </tbody>
   </table>
   </div>
@@ -138,45 +207,50 @@ a{color:var(--accent)}
   DOM-only arms produce — picking the same element on both members of every pair.</p>
 </section>
 
-<section>
-  <h2><span class="n">03</span>Vision is worth more on real pages</h2>
-  <p class="sub">Same models, same training, same code, two benchmarks.</p>
-  <div class="tw">
+<section id="scale">
+  <div class="shead"><span class="eyebrow">03 / Scale</span>
+    <h2>Benchmark pages understate what vision is worth</h2></div>
+  <p class="sub">Same models, same training, same code. The only thing that changes is how
+  complicated the page is.</p>
+  <div class="tscroll">
   <table>
     <thead><tr><th>benchmark</th><th>pages</th><th>screenshot gain</th><th>95% CI</th></tr></thead>
     <tbody>
-      <tr><td>Mind2Web held-out</td><td>real websites</td><td class="good">+34.2%</td><td>[+23.1%, +47.7%]</td></tr>
-      <tr><td>MiniWoB++</td><td>simplified, generated</td><td class="good">+7.1%</td><td>[+1.7%, +13.5%]</td></tr>
+      <tr><td>Mind2Web held-out</td><td>real websites</td><td class="num good">+34.2%</td><td class="num">[+23.1%, +47.7%]</td></tr>
+      <tr><td>MiniWoB++</td><td>simplified, generated</td><td class="num good">+7.1%</td><td class="num">[+1.7%, +13.5%]</td></tr>
     </tbody>
   </table>
   </div>
-  <div class="note">
-    Evaluating a visual web agent only on MiniWoB-style pages <strong>understates what vision
-    is worth</strong>, by roughly five-fold here. MiniWoB task success, 224 tasks per arm,
-    scored by the environment's own reward: 38.4% / 45.5% / 43.8% / 49.1%.
+  <div class="callout">
+    Evaluating a visual web agent only on MiniWoB-style pages understates the effect by roughly
+    <strong>five-fold</strong>. MiniWoB task success, 224 tasks per arm, scored by the
+    environment's own reward: <span class="mono">38.4% / 45.5% / 43.8% / 49.1%</span>.
   </div>
 </section>
 
-<section>
-  <h2><span class="n">04</span>An overlay the model was not trained on overrides the text</h2>
-  <figure>
+<section id="breaks">
+  <div class="shead"><span class="eyebrow">04 / Where it breaks</span>
+    <h2>An overlay out of distribution overrides the text</h2></div>
+  <p class="sub">Numbered overlays are standard practice in Set-of-Mark prompting. Drawn in a
+  style the model was not trained on, one moved it from 0.93 on the right element to 0.99 on
+  the wrong one — while the element table supplied alongside said <code>checked=true</code>
+  for the element it chose.</p>
+  <figure class="wide">
     <img src="overlay_distribution_shift.png"
-         alt="The same checkpoint on the same shipping-options page: from a plain screenshot it picks element 3 with p=0.93, and from a numbered overlay it picks element 1 with p=0.99">
-    <figcaption>The badges occlude nothing here — moving them clear of the row headings did not
-    change the answer. What breaks it is that the overlay itself is out of distribution. The
-    element table supplied alongside the picture said <code>checked=true</code> for the element
-    it chose.</figcaption>
+         alt="Plain screenshot on the left, numbered overlay on the right, with the model's choice and probability under each">
+    <figcaption>The badges occlude nothing here: moving them clear of the row headings did not
+    change the answer. What breaks it is that the overlay itself is out of distribution, and
+    the failure is silent — nothing about the output looks wrong.</figcaption>
   </figure>
-  <p class="sub">Numbered overlays are standard practice in Set-of-Mark prompting, and this
-  failure is silent: nothing about the output looks wrong.</p>
 </section>
 
-<section>
-  <h2><span class="n">05</span>Offline corpora contain no terminal action</h2>
+<section id="terminal">
+  <div class="shead"><span class="eyebrow">05 / Corpus</span>
+    <h2>Offline trajectories contain no terminal action</h2></div>
   <p class="sub">All 6454 Mind2Web steps are CLICK, TYPE_TEXT or SELECT, because a recorded
-  trajectory stores one action per step and stops. The model saw DONE among its candidates and
-  was never once shown when to pick it.</p>
-  <div class="note warn">
+  trajectory stores one action per step and then stops. The model saw DONE among its candidates
+  and was never once shown when to pick it.</p>
+  <div class="callout">
     <strong>105 of 106 successful runs kept acting on a finished page</strong> until the step
     budget ran out. This is a property of the corpus format, not of Mind2Web. Collecting real
     terminal observations from a resettable environment fixes the symptom — median steps fall
@@ -185,43 +259,46 @@ a{color:var(--accent)}
   </div>
 </section>
 
-<section>
-  <h2><span class="n">06</span>The mechanism that did not pay off</h2>
-  <p class="sub">The unified decision-and-generation mechanism this project set out to show
-  does not improve accuracy. Four of five comparisons span zero.</p>
+<section id="null">
+  <div class="shead"><span class="eyebrow">06 / Reported anyway</span>
+    <h2>What didn't work</h2></div>
+  <p class="sub">The unified decision-and-generation mechanism this project set out to show does
+  not improve accuracy. Four of five comparisons span zero.</p>
   <ul>
     <li>A fair autoregressive baseline had <strong>zero parse failures and zero out-of-set
-      targets in 234 steps</strong> with a median of 20 candidates. The errors a
-      constrained readout structurally prevents did not occur.</li>
+      targets</strong> in 234 steps with a median of 20 candidates. The errors a constrained
+      readout structurally prevents did not occur, so preventing them bought nothing.</li>
     <li>The bottleneck is perception, not expression. Both mechanisms read the same prefix and
-      see the same candidates.</li>
-    <li>Fan-out needs questions to share an observation, and a browser step has 2–3. The prior
-      work's 8.9× came from N=32. Measured here: N=1 0.99×, N=2 1.97×, N=4 2.42×.</li>
+      see the same candidates; how the answer is spelled adds no information.</li>
+    <li>Fan-out needs questions to share an observation, and a browser step has two or three.
+      The prior work's 8.9× came from N=32. Measured here: N=1 <span class="mono">0.99×</span>,
+      N=2 <span class="mono">1.97×</span>, N=4 <span class="mono">2.42×</span>.</li>
   </ul>
-  <p class="sub">What it does buy is decision latency, and that holds.</p>
-  <div class="tw">
+  <p class="sub">What it does buy is decision latency, and that part holds.</p>
+  <div class="tscroll">
   <table>
     <thead><tr><th>arm</th><th>decide</th><th>browser observation</th><th>success under 3 s</th></tr></thead>
     <tbody>
-      <tr><td>A — DOM, autoregressive</td><td>351 ms</td><td>1220 ms</td><td>2.8%</td></tr>
-      <tr><td>B — screenshot, autoregressive</td><td>447 ms</td><td>1470 ms</td><td>6.9%</td></tr>
-      <tr><td>C — DOM, branch readout</td><td class="good">145 ms</td><td>1207 ms</td><td>10.6%</td></tr>
-      <tr class="best"><td>D — screenshot, branch readout</td><td class="good">243 ms</td><td>1187 ms</td><td>12.0%</td></tr>
+      <tr><td>A — DOM, autoregressive</td><td class="num">351 ms</td><td class="num">1220 ms</td><td class="num">2.8%</td></tr>
+      <tr><td>B — screenshot, autoregressive</td><td class="num">447 ms</td><td class="num">1470 ms</td><td class="num">6.9%</td></tr>
+      <tr><td>C — DOM, branch readout</td><td class="num"><span class="best">145 ms</span></td><td class="num">1207 ms</td><td class="num">10.6%</td></tr>
+      <tr><td>D — screenshot, branch readout</td><td class="num"><span class="best">243 ms</span></td><td class="num">1187 ms</td><td class="num"><span class="best">12.0%</span></td></tr>
     </tbody>
   </table>
   </div>
-  <div class="note">
-    Reading a restricted logit is <strong>1.8–2.4× faster</strong> than generating an action
-    line, and accuracy does not fall. <strong>End to end it does not show</strong>: browser
-    observation is the column next to it, and a 200 ms saving is 14% of a 1.5 s step. KV reuse
-    for the text branch measures 3.0× at one generated token and 2.1× at eight — a fixed
-    saving of about 110 ms, which matters most for the short values a browser actually types.
+  <div class="callout null">
+    Reading a restricted logit is <strong>1.8–2.4× faster</strong> than generating an action line,
+    and accuracy does not fall. <strong>End to end it does not show</strong>: browser observation
+    is the column beside it, and a 200 ms saving is 14% of a 1.5 s step. KV reuse for the text
+    branch measures <span class="mono">3.0×</span> at one generated token and
+    <span class="mono">2.1×</span> at eight — a fixed saving of about 110 ms, which matters
+    most for the short values a browser actually types.
   </div>
 </section>
 
-<section>
-  <h2><span class="n">07</span>Using it</h2>
-  <pre><code>from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
+<section id="try">
+  <div class="shead"><span class="eyebrow">Run it</span><h2>Using the released adapters</h2></div>
+<pre><code>from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
 from peft import PeftModel
 
 base = "Qwen/Qwen3-VL-4B-Instruct"
@@ -240,12 +317,12 @@ processor = AutoProcessor.from_pretrained(base)</code></pre>
   (<a href="https://arxiv.org/abs/2609.25845">paper</a>) from many questions about one image to
   acting on a page. Executor:
   <a href="https://github.com/browser-use/jev-ultrafast">jev-ultrafast</a>. Benchmark:
-  <a href="https://github.com/Farama-Foundation/miniwob-plusplus">MiniWoB++</a>. Both pinned;
-  see <a href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use/blob/main/PINNED_VERSIONS.md">PINNED_VERSIONS</a>.</p>
-  <p>Every number on this page is computed from the files in
+  <a href="https://github.com/Farama-Foundation/miniwob-plusplus">MiniWoB++</a>. Both pinned in
+  <a href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use/blob/main/PINNED_VERSIONS.md">PINNED_VERSIONS</a>.</p>
+  <p>Every number here is computed from the files in
   <a href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use/tree/main/data"><code>data/</code></a>
-  by <code>site/build_site.py</code>, so the page cannot drift from the results.
-  One training seed; the limitations are in
+  by <code>site/build_site.py</code>, so the page cannot drift from the results. One training
+  seed; limitations in
   <a href="https://github.com/guanxuyu-sv/Visual-Jev-Browser-Use/blob/main/docs/status.md">status.md</a>.</p>
 </footer>
 
