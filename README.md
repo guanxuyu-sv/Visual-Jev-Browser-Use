@@ -141,6 +141,7 @@ and no VisualWebArena — its site images are hosted where this network cannot
 reach them, and the measurements behind that conclusion are in `docs/status.md`.
 The paired diagnostic, which carries the strongest claim, has five pairs.
 
-Upstream executor: [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast)
-at `1231850a`. Benchmark: [MiniWoB++](https://github.com/Farama-Foundation/miniwob-plusplus)
-at `33c3b4d`. Neither is redistributed here beyond the commit pins.
+The executor is [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast)
+and the closed-loop benchmark is [MiniWoB++](https://github.com/Farama-Foundation/miniwob-plusplus);
+neither is redistributed here. `PINNED_VERSIONS.md` records the commits and the
+library versions every number in `data/` was produced against.
