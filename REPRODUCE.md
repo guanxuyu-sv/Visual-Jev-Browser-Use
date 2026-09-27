@@ -8,8 +8,13 @@ backbone weights, the corpora, a GPU, and a headless Chrome.
 
 Neither corpus is redistributed. Multimodal-Mind2Web is obtained from its own
 distribution under its own terms; MiniWoB++ is vendored at a pinned commit by the
-build step rather than copied into this repository. Model weights and the trained
-adapters are not in git. There is no manuscript.
+build step rather than copied into this repository.
+
+The trained adapters are not in git either, but they are published:
+[`guanxuyu/visual-jev-browser-4b`](https://huggingface.co/guanxuyu/visual-jev-browser-4b)
+holds all four arms and the terminal-trained stage, so steps 1–3 can be skipped
+if you only want to reproduce the evaluation. The backbone comes from
+`Qwen/Qwen3-VL-4B-Instruct`.
 
 ## Environment
 
@@ -108,6 +113,10 @@ lr 1e-4, LoRA r=16 alpha=32 on the language tower with the vision tower frozen:
 33.0M trainable of 4.47B (0.74%), 9.5 GiB peak, roughly 1–2 hours per arm.
 
 ## 4. Evaluate
+
+Adapters can come straight from the Hub instead of a local training run —
+`--adapter guanxuyu/visual-jev-browser-4b` for arm D, and the subfolder paths in
+the model card for the others.
 
 ```bash
 # L1: fixed observations on the held-out websites

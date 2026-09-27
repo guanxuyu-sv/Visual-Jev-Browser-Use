@@ -11,6 +11,8 @@ This extends [Visual Jev](https://github.com/guanxuyu-sv/Visual-Jev)
 one image to acting on a web page, where the questions are *which operation* and
 *which element*, and the answers have to survive an executor.
 
+**[🤗 Adapters](https://huggingface.co/guanxuyu/visual-jev-browser-4b)** · **[🧪 Reproduction guide](REPRODUCE.md)** · **[📊 Status against the plan](docs/status.md)**
+
 Every number below is measured, with its interval attached. `docs/status.md` is
 the standing account of what each hypothesis came to, including the one that did
 not work out and the five defects found along the way.
@@ -114,6 +116,39 @@ finished page until the step budget ran out**. This is a property of the corpus
 format, not of Mind2Web. Collecting real terminal observations from a resettable
 environment fixes the symptom; doing it only at the moment of completion
 introduces a false-DONE problem of its own, which `docs/status.md` documents.
+
+## The released adapters
+
+All four arms are on the Hub as one repository, because the comparison is the
+result and a single arm says little on its own.
+
+| path | arm |
+| --- | --- |
+| [`visual-jev-browser-4b`](https://huggingface.co/guanxuyu/visual-jev-browser-4b) *(root)* | D — screenshot + DOM, branch readout |
+| `arm-a-dom-ar/` | A — DOM, autoregressive |
+| `arm-b-screenshot-ar/` | B — screenshot + DOM, autoregressive |
+| `arm-c-dom-branch/` | C — DOM, branch readout |
+| `terminal-trained/arm-{a,b,c,d}/` | the same four, plus terminal-action supervision |
+
+```python
+from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
+from peft import PeftModel
+
+base = "Qwen/Qwen3-VL-4B-Instruct"
+model = Qwen3VLForConditionalGeneration.from_pretrained(base, dtype="bfloat16").to("cuda")
+model = PeftModel.from_pretrained(model, "guanxuyu/visual-jev-browser-4b")   # arm D
+processor = AutoProcessor.from_pretrained(base)
+```
+
+**The arms are not interchangeable.** A branch-readout adapter expects candidate
+symbols at an `Answer:` position and is read from one logit; an autoregressive
+one expects to generate `CLICK 4`. Use `code/vjb/model/policy.py`, which selects
+the matching path by arm, rather than rebuilding the prompt — the element table,
+the candidate symbols and the numbered overlay all have to be constructed the way
+training constructed them.
+
+Use `terminal-trained/` for a closed loop: the base four were never shown a
+terminal action, for the reason in "Two failure modes" above, and do not stop.
 
 ## Layout
 
