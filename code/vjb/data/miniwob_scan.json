@@ -1,0 +1,805 @@
+{
+  "ascending-numbers": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Click on the numbers in ascending order.",
+    "error": null
+  },
+  "bisect-angle": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Create a line that bisects the angle evenly in two, then press submit.",
+    "error": null
+  },
+  "book-flight": {
+    "elements": 4,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Book the shortest one-way flight from: Rosario, WA to: Long Beach, CA ",
+    "error": null
+  },
+  "book-flight-nodelay": {
+    "elements": 4,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Book the shortest one-way flight from: Rosario, WA to: Long Beach, CA ",
+    "error": null
+  },
+  "button-delay": {
+    "elements": 2,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click button ONE, wait 3 seconds, then click button TWO.",
+    "error": null
+  },
+  "buy-ticket": {
+    "elements": 4,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Buy the ticket with the cheapest cost.",
+    "error": null
+  },
+  "chase-circle": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Keep your mouse inside the circle as it moves around.",
+    "error": null
+  },
+  "choose-date": {
+    "elements": 2,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select 10/11/2016 as the date and hit submit.",
+    "error": null
+  },
+  "choose-list": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "SELECT"
+    ],
+    "goal": "Select Somalia from the list and click Submit.",
+    "error": null
+  },
+  "circle-center": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Find and click on the center of the circle, then press submit.",
+    "error": null
+  },
+  "click-button": {
+    "elements": 5,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Click on the \"No\" button.",
+    "error": null
+  },
+  "click-button-sequence": {
+    "elements": 2,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click button ONE, then click button TWO.",
+    "error": null
+  },
+  "click-checkboxes": {
+    "elements": 6,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select ZrLIee, RKPgD, 3mJ5 and click Submit.",
+    "error": null
+  },
+  "click-checkboxes-large": {
+    "elements": 12,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select mJ5sq03, Mb, YJ, RYjlA, 6kvT9vQ, WAR, T3XZr, PgDpH3, W1k59M, s1",
+    "error": null
+  },
+  "click-checkboxes-soft": {
+    "elements": 7,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select words similar to rabbit, angry, gigantic, depraved, erroneous a",
+    "error": null
+  },
+  "click-checkboxes-transfer": {
+    "elements": 4,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select PgDpH3, IeevAR, T3XZr and click Submit.",
+    "error": null
+  },
+  "click-collapsible": {
+    "elements": 3,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Expand the section below and click submit.",
+    "error": null
+  },
+  "click-collapsible-2": {
+    "elements": 3,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Expand the sections below, to find and click on the link \"ut.\".",
+    "error": null
+  },
+  "click-collapsible-nodelay": {
+    "elements": 3,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Expand the section below and click submit.",
+    "error": null
+  },
+  "click-color": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Click on the  colored box.",
+    "error": null
+  },
+  "click-dialog": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Close the dialog box by clicking the \"x\".",
+    "error": null
+  },
+  "click-dialog-2": {
+    "elements": 3,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click the button in the dialog box labeled \"x\".",
+    "error": null
+  },
+  "click-link": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Click on the link \"In\".",
+    "error": null
+  },
+  "click-menu": {
+    "elements": 4,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select Xaviera>Laurie>Melinde",
+    "error": null
+  },
+  "click-menu-2": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click the \"Menu\" button, and then find and click on the item labeled \"",
+    "error": null
+  },
+  "click-option": {
+    "elements": 6,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select yMbdWAR and click Submit.",
+    "error": null
+  },
+  "click-pie": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Expand the pie menu below and click on the item labeled \"J\".",
+    "error": null
+  },
+  "click-pie-nodelay": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Expand the pie menu below and click on the item labeled \"J\".",
+    "error": null
+  },
+  "click-scroll-list": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "SELECT"
+    ],
+    "goal": "Select Brazil, Mauritania from the scroll list and click Submit.",
+    "error": null
+  },
+  "click-shades": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select all the shades of blue and press Submit.",
+    "error": null
+  },
+  "click-shape": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Click on a small p",
+    "error": null
+  },
+  "click-tab": {
+    "elements": 6,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click on Tab #1.",
+    "error": null
+  },
+  "click-tab-2": {
+    "elements": 6,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Switch between the tabs to find and click on the link \"ut.\".",
+    "error": null
+  },
+  "click-tab-2-easy": {
+    "elements": 2,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Switch between the tabs to find and click on the link \"In\".",
+    "error": null
+  },
+  "click-tab-2-hard": {
+    "elements": 10,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Switch between the tabs to find and click on the link \"Purus\".",
+    "error": null
+  },
+  "click-tab-2-medium": {
+    "elements": 4,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Switch between the tabs to find and click on the link \"aliquam\".",
+    "error": null
+  },
+  "click-test": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click the button.",
+    "error": null
+  },
+  "click-test-2": {
+    "elements": 2,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click button ONE.",
+    "error": null
+  },
+  "click-test-transfer": {
+    "elements": 2,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click button ONE.",
+    "error": null
+  },
+  "click-widget": {
+    "elements": 5,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Click on a \"textarea\" widget.",
+    "error": null
+  },
+  "count-shape": {
+    "elements": 5,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "How many large rectangles are there?",
+    "error": null
+  },
+  "count-sides": {
+    "elements": 5,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Press the button that correctly denotes how many sides the shape has.",
+    "error": null
+  },
+  "daily-calendar": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Create a 30 mins event named \"Party\", between 12PM and 4PM.",
+    "error": null
+  },
+  "drag-circle": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Drag the circle down then press Submit.",
+    "error": null
+  },
+  "drag-shapes-2": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Drag all triangles into the left box, and everything else into the rig",
+    "error": null
+  },
+  "drag-single-shape": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Drag the item down then press Submit.",
+    "error": null
+  },
+  "draw-circle": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Draw a circle centered around the marked point by dragging the mouse. ",
+    "error": null
+  },
+  "draw-line": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Draw a vertical line that runs through the dot, then press submit.",
+    "error": null
+  },
+  "email-inbox": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Find the email by Deva and click the star icon to mark it as important",
+    "error": null
+  },
+  "email-inbox-delete": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Find the email by Celestyn and click the trash icon to delete it.",
+    "error": null
+  },
+  "email-inbox-forward": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Find the email by Celestyn and forward that email to Theresita.",
+    "error": null
+  },
+  "email-inbox-forward-nl": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Please find the message by Andria, then send it to Loralee.",
+    "error": null
+  },
+  "email-inbox-forward-nl-turk": {
+    "elements": 0,
+    "ops": [],
+    "goal": "I'd like to email Tammi the email I got from Elwira.",
+    "error": null
+  },
+  "email-inbox-important": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Find the email by Celestyn and click the star icon to mark it as impor",
+    "error": null
+  },
+  "email-inbox-nl-turk": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Locate Elwira's email and delete it.",
+    "error": null
+  },
+  "email-inbox-noscroll": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Find the email by Celestyn and click the star icon to mark it as impor",
+    "error": null
+  },
+  "email-inbox-reply": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Find the email by Celestyn and reply to them with the text \"Mi enim sa",
+    "error": null
+  },
+  "email-inbox-star-reply": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Find the email by Celestyn and click the star icon to mark it as impor",
+    "error": null
+  },
+  "enter-date": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Enter 10/20/2017 as the date and hit submit.",
+    "error": null
+  },
+  "enter-password": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Enter the password \"rUT3X\" into both text fields and press submit.",
+    "error": null
+  },
+  "enter-text": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Enter \"Tora\" into the text field and press Submit.",
+    "error": null
+  },
+  "enter-text-2": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Type \"tora\" in all upper case letters in the text input and press Subm",
+    "error": null
+  },
+  "enter-text-dynamic": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Enter \"3XZ\" into the text field and press Submit.",
+    "error": null
+  },
+  "enter-time": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Enter 7:55 PM as the time and press submit.",
+    "error": null
+  },
+  "find-greatest": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Find and pick the card with the greatest number, then press submit.",
+    "error": null
+  },
+  "find-word": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Find the 1st word in the paragraph, type that into the textbox and pre",
+    "error": null
+  },
+  "focus-text": {
+    "elements": 1,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Focus into the textbox.",
+    "error": null
+  },
+  "focus-text-2": {
+    "elements": 3,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Focus into the 3rd input textbox.",
+    "error": null
+  },
+  "form-sequence": {
+    "elements": 4,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Select 0 with the slider, click the 3rd checkbox, then hit Submit.",
+    "error": null
+  },
+  "form-sequence-2": {
+    "elements": 7,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Check the 3rd radio button and enter the number \"-7\" into the 2nd text",
+    "error": null
+  },
+  "form-sequence-3": {
+    "elements": 5,
+    "ops": [
+      "CLICK",
+      "SELECT",
+      "TYPE_TEXT"
+    ],
+    "goal": "Choose 6 ft from the dropdown, then click the button labeled \"Yes\".",
+    "error": null
+  },
+  "generate-number": {
+    "elements": 2,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Generate an even number, then press submit.",
+    "error": null
+  },
+  "grid-coordinate": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Click on the grid coordinate (1,-2).",
+    "error": null
+  },
+  "guess-number": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Guess the number between 0-9 and press Submit. Use the feedback below ",
+    "error": null
+  },
+  "hot-cold": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Find and click on the HOT area.",
+    "error": null
+  },
+  "hover-shape": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Keep the mouse hovered over the colored square.",
+    "error": null
+  },
+  "identify-shape": {
+    "elements": 5,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click the button that best describes the figure below.",
+    "error": null
+  },
+  "login-user": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Enter the username \"thaddeus\" and the password \"UT\" into the text fiel",
+    "error": null
+  },
+  "login-user-popup": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Enter the username \"thaddeus\" and the password \"UT\" into the text fiel",
+    "error": null
+  },
+  "moving-items": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Click as many moving circles as possible.",
+    "error": null
+  },
+  "multi-layouts": {
+    "elements": 3,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Search for surreal movies directed by Baxter from year 1995.",
+    "error": null
+  },
+  "multi-orderings": {
+    "elements": 3,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Search for surreal movies directed by Baxter from year 1995.",
+    "error": null
+  },
+  "navigate-tree": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Navigate through the file tree. Find and click on the folder or file n",
+    "error": null
+  },
+  "odd-or-even": {
+    "elements": 7,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Mark the numbers below as odd or even and press submit when done.",
+    "error": null
+  },
+  "order-food": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Order 2 items that are meat",
+    "error": null
+  },
+  "phone-book": {
+    "elements": 2,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Find Kara-Lynn in the contact book and click on their address.",
+    "error": null
+  },
+  "read-table": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Enter the value of Language into the text field and press Submit.",
+    "error": null
+  },
+  "read-table-2": {
+    "elements": 3,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Enter the value that corresponds with each label into the form and sub",
+    "error": null
+  },
+  "right-angle": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Add a third point to create a right angle, then press submit.",
+    "error": null
+  },
+  "search-engine": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Use the textbox to enter \"Truman\" and press \"Search\", then find and cl",
+    "error": null
+  },
+  "sign-agreement": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Scroll to the bottom of the textarea, enter the name \"Enola\" then pres",
+    "error": null
+  },
+  "simon-says": {
+    "elements": 4,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Push the buttons in the order displayed.",
+    "error": null
+  },
+  "social-media": {
+    "elements": 0,
+    "ops": [],
+    "goal": "For the user @beaulah, click on the \"Retweet\" button.",
+    "error": null
+  },
+  "social-media-all": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click the \"Retweet\" button on all posts by @enola and then click Submi",
+    "error": null
+  },
+  "social-media-some": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Click the \"Retweet\" button on 1 post by @enola and then click Submit.",
+    "error": null
+  },
+  "stock-market": {
+    "elements": 1,
+    "ops": [
+      "CLICK"
+    ],
+    "goal": "Buy UBN stock when the price is less than $53.10.",
+    "error": null
+  },
+  "text-transform": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Type the text below into the text field and press Submit.",
+    "error": null
+  },
+  "tic-tac-toe": {
+    "elements": 0,
+    "ops": [],
+    "goal": "Playing as 'X', win a game of tic-tac-toe.",
+    "error": null
+  },
+  "unicode-test": {
+    "elements": 5,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Click on the \"\u00c7\u00a1\u00ae\u00e5\u00ae\u0161\" button.",
+    "error": null
+  },
+  "use-autocomplete": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Enter an item that starts with \"Sa\" and ends with \"ino\".",
+    "error": null
+  },
+  "use-autocomplete-nodelay": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Enter an item that starts with \"Sa\" and ends with \"ino\".",
+    "error": null
+  },
+  "use-colorwheel": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Select yellow with the color picker and hit Submit.",
+    "error": null
+  },
+  "use-colorwheel-2": {
+    "elements": 2,
+    "ops": [
+      "CLICK",
+      "TYPE_TEXT"
+    ],
+    "goal": "Select the following color  with the color picker and hit Submit.",
+    "error": null
+  }
+}

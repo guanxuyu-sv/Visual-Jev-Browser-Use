@@ -1,0 +1,11 @@
+# The backbone stack. torch is installed separately from the CUDA index; see REPRODUCE.md.
+transformers>=5.0
+peft>=0.21
+accelerate>=1.0
+pillow>=11
+pyarrow>=15          # reading the Mind2Web parquet shards
+numpy
+
+# The executor. Drives a real Chrome over CDP.
+browser-harness==0.1.13
+httpx[http2]>=0.28,<1
